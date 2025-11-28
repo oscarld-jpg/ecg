@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de ECG: Entrenamiento Visual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS PERSONALIZADOS --- */
+        body { font-family: 'Roboto', sans-serif; }
+        
+        /* Títulos */
+        .reveal h2 { color: #f1c40f; text-transform: none; border-bottom: 2px solid #f1c40f; display: inline-block; padding-bottom: 10px; }
+        .reveal h3 { color: #3498db; }
+        
+        /* Cajas de Texto */
+        .card { background: #ecf0f1; color: #2c3e50; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); text-align: left; margin: 20px auto; max-width: 80%; font-size: 0.9em; }
+        
+        /* Contenedor ECG Completo */
+        .ecg-full-container { background: white; padding: 5px; border-radius: 5px; margin-top: 20px; height: 450px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        .ecg-img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        
+        /* Contenedor ZOOM */
+        .zoom-frame {
+            width: 100%;
+            height: 350px;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: 300%;
+            border: 4px solid #e74c3c;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+            margin: 10px auto;
+        }
+
+        /* Caja de Diagnóstico */
+        .diagnosis-box { background: #27ae60; color: white; padding: 15px; border-radius: 8px; margin-top: 10px; font-weight: bold; text-align: center; border: 2px solid white; font-size: 1.1em; }
+        
+        /* Pistas y Navegación */
+        .hint { font-size: 0.8em; color: #bdc3c7; font-style: italic; margin-top: 10px; }
+        .nav-hint { font-size: 0.6em; color: #7f8c8d; margin-top: 10px; }
+        
+        /* Lista de Tips Final */
+        .tips-list li { margin-bottom: 15px; }
+        .tips-list strong { color: #e74c3c; }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1>Taller de ECG</h1>
+            <h3>Entrenamiento Clínico Visual</h3>
+            
+            <div style="margin-top: 50px; font-size: 0.8em; color: #bdc3c7;">
+                <p>Instrucciones:</p>
+                <ol style="width: 60%; margin: auto;">
+                    <li>Lean el caso clínico.</li>
+                    <li>Analicen el ECG completo.</li>
+                    <li>Miren el ZOOM para confirmar su diagnóstico.</li>
+                </ol>
+                <p style="margin-top: 40px; font-size: 0.7em; color: #7f8c8d;">
+                    📩 lunadavilaoscar@gmail.com
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 1: El Chequeo</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Masculino, 25 años.</p>
+                    <p><strong>Contexto:</strong> Deportista, asintomático. Viene por un apto físico para jugar al fútbol.</p>
+                    <p><strong>Examen Físico:</strong> Normal. R1 y R2 en 4 focos, silencios libres.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo para ver el ECG 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 1: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_normal.jpg" class="ecg-img" alt="ECG Normal">
+                </div>
+                <p class="hint">Busquen: Onda P, PR constante, QRS angosto.</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_normal.jpg'); background-position: bottom left;"></div>
+                <div class="fragment diagnosis-box">
+                    ✅ RITMO SINUSAL (Normal)
+                </div>
+                <p class="nav-hint">Avancen al siguiente caso ➡️</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 2: "Siento que salta"</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Mujer, 72 años, Hipertensoa.</p>
+                    <p><strong>Contexto:</strong> Consulta por palpitaciones irregulares de 48hs de evolución. Dice que "el corazón se le acelera y frena".</p>
+                    <p><strong>Examen:</strong> Pulso irregular y desigual.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 2: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_fa.jpg" class="ecg-img" alt="ECG FA">
+                </div>
+                <p class="hint">Miren la regularidad de los R-R. ¿Ven ondas P?</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_fa.jpg'); background-position: bottom center; background-size: 250%;"></div>
+                <div class="fragment diagnosis-box">
+                    💔 FIBRILACIÓN AURICULAR (FA)
+                </div>
+                <p class="hint">R-R irregularmente irregular + Ausencia de ondas P.</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 3: "La Sierra"</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Hombre, 55 años, EPOC.</p>
+                    <p><strong>Contexto:</strong> Palpitaciones rápidas pero regulares.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 3: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_flutter.jpg" class="ecg-img" alt="ECG Flutter">
+                </div>
+                <p class="hint">Presten atención a la línea de base en la Cara Inferior (II, III, aVF).</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_flutter.jpg'); background-position: bottom left; background-size: 350%;"></div>
+                <div class="fragment diagnosis-box">
+                    🪚 ALETEO AURICULAR (Flutter)
+                </div>
+                <p class="hint">Ondas F en "Dientes de Sierra" a 300 lpm.</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 4: "Se me sale el corazón"</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Mujer, 28 años, sin antecedentes.</p>
+                    <p><strong>Contexto:</strong> Estaba estudiando y sintió un inicio súbito de taquicardia. Se siente mareada.</p>
+                    <p><strong>Examen:</strong> FC 180 lpm, regular.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 4: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_tvs.jpg" class="ecg-img" alt="ECG TPS">
+                </div>
+                <p class="hint">¿QRS ancho o estrecho? ¿Ven la P?</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_tvs.jpg'); background-position: 50% 25%; background-size: 250%;"></div>
+                <div class="fragment diagnosis-box">
+                    🚀 TAQUICARDIA PAROXÍSTICA SUPRAVENTRICULAR
+                </div>
+                <p class="hint">Regular, Rápida, QRS estrecho, sin P visible.</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 5: Dolor Epigástrico</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Hombre, 60 años, fumador.</p>
+                    <p><strong>Contexto:</strong> "Doctor, me cayó mal la comida, tengo un peso en la boca del estómago". Tiene náuseas y sudoración fría.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 5: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_iam_inf.jpg" class="ecg-img" alt="ECG IAM Inf">
+                </div>
+                <p class="hint">Busquen el ST en DII, DIII y aVF.</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_iam_inf.jpg'); background-position: bottom left; background-size: 350%;"></div>
+                <div class="fragment diagnosis-box" style="background: #c0392b;">
+                    🚨 IAM CARA INFERIOR
+                </div>
+                <p class="hint">Supradesnivel del ST en II, III, aVF. (Coronaria Derecha).</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 6: La Aleta de Tiburón</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> Hombre, 50 años, diabético.</p>
+                    <p><strong>Contexto:</strong> Dolor retroesternal opresivo "como una pata de elefante", irradiado a mandíbula.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 6: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_iam_ant.jpg" class="ecg-img" alt="ECG IAM Ant">
+                </div>
+                <p class="hint">Miren las precordiales (V1 a V4).</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_iam_ant.jpg'); background-position: 65% 30%; background-size: 250%;"></div>
+                <div class="fragment diagnosis-box" style="background: #c0392b;">
+                    🦈 IAM ANTERIOR EXTENSO
+                </div>
+                <p class="hint">Supradesnivel convexo ("Aleta") en V1-V4. (Descendente Anterior).</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 7: Insuficiencia Cardíaca</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> 72 años, miocardiopatía dilatada.</p>
+                    <p><strong>Contexto:</strong> Control de rutina. Refiere disnea clase funcional II.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 7: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_bcri.jpg" class="ecg-img" alt="ECG BCRI">
+                </div>
+                <p class="hint">¿Cuánto mide el QRS? Miren V1 y V6.</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_bcri.jpg'); background-position: 70% 10%; background-size: 400%;"></div>
+                <p class="hint">Miren V1: QRS negativo profundo (Cono de helado).</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_bcri.jpg'); background-position: 95% 85%; background-size: 400%;"></div>
+                <div class="fragment diagnosis-box">
+                    🚧 BLOQUEO COMPLETO DE RAMA IZQUIERDA
+                </div>
+                <p class="hint">Miren V6: QRS Ancho + Muesca o meseta.</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 8: Las Orejas de Conejo</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> 30 años, sano.</p>
+                    <p><strong>Contexto:</strong> Hallazgo en prequirúrgico. Asintomático.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 8: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_bcrd.jpg" class="ecg-img" alt="ECG BCRD">
+                </div>
+                <p class="hint">Miren V1 y V2. ¿Ven alguna forma familiar?</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_bcrd.jpg'); background-position: 60% 8%; background-size: 400%;"></div>
+                <div class="fragment diagnosis-box">
+                    🐰 BLOQUEO COMPLETO DE RAMA DERECHA
+                </div>
+                <p class="hint">Patrón rSR' ("Orejas de Conejo") en V1.</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 9: El Paciente Renal</h2>
+                <div class="card">
+                    <p><strong>Paciente:</strong> 45 años, ERC en hemodiálisis.</p>
+                    <p><strong>Contexto:</strong> Faltó a sus últimas 2 sesiones. Viene por debilidad muscular severa.</p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 9: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_hiperk.jpg" class="ecg-img" alt="ECG Potasio">
+                </div>
+                <p class="hint">Miren la onda T. Tengan cuidado, ¡pincha!</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_hiperk.jpg'); background-position: 55% 40%; background-size: 300%;"></div>
+                <div class="fragment diagnosis-box">
+                    🍌 HIPERKALEMIA SEVERA
+                </div>
+                <p class="hint">Ondas T altas, picudas, simétricas y de base angosta ("Tienda de campaña").</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Caso 10: CÓDIGO ROJO</h2>
+                <div class="card" style="border-left: 10px solid #c0392b;">
+                    <p><strong>Paciente:</strong> Desconocido.</p>
+                    <p><strong>Contexto:</strong> Se desploma en la sala de espera.</p>
+                    <p><strong>Examen:</strong> Inconsciente. No responde. No respira. <strong>NO TIENE PULSO.</strong></p>
+                </div>
+                <p class="nav-hint">Deslicen abajo 👇</p>
+            </section>
+
+            <section>
+                <h2>Caso 10: Panorama</h2>
+                <div class="ecg-full-container">
+                    <img src="ecg_fv.jpg" class="ecg-img" alt="ECG Paro">
+                </div>
+                <p class="hint">¿Ven algún complejo QRS organizado?</p>
+            </section>
+
+            <section data-transition="zoom">
+                <div class="zoom-frame" style="background-image: url('ecg_fv.jpg'); background-position: center center; background-size: 200%;"></div>
+                <div class="fragment diagnosis-box" style="background: #c0392b; font-size: 1.5em;">
+                    ⚡ FIBRILACIÓN VENTRICULAR
+                </div>
+                <p class="hint">Actividad eléctrica caótica. Requiere DESFIBRILACIÓN inmediata.</p>
+            </section>
+        </section>
+
+        <section>
+            <h2>Tips de Guardia para llevarse</h2>
+            <div class="card" style="max-width: 90%;">
+                <ul class="tips-list" style="font-size:0.8em;">
+                    <li><strong>P sin QRS:</strong> Piensen en Bloqueo AV.</li>
+                    <li><strong>QRS Ancho (>3 cuadraditos):</strong> Bloqueo de Rama o Ritmo Ventricular.</li>
+                    <li><strong>Irregular sin P:</strong> Fibrilación Auricular (a buscar la P y no encontrarla).</li>
+                    <li><strong>Dientes de Sierra:</strong> Flutter Auricular.</li>
+                    <li><strong>Supra ST:</strong> Infarto Agudo (¡A correr!).</li>
+                    <li><strong>T picudas:</strong> Ojo con el Potasio en renales.</li>
+                    <li><strong>Caos total sin pulso:</strong> Fibrilación Ventricular (¡Choque!).</li>
+                </ul>
+            </div>
+            <h3 style="color:#3498db; margin-top:30px;">¿Dudas?</h3>
+        </section>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+<script>
+    // Inicialización
+    Reveal.initialize({
+        hash: false, 
+        plugins: [ RevealHighlight ],
+        slideNumber: 'c/t',
+        transition: 'convex', 
+        backgroundTransition: 'fade'
+    });
+</script>
+</body>
+</html>
